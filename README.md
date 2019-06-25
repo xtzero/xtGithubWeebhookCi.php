@@ -1,4 +1,4 @@
-# xtgGthubWeebhookCi.php
+# xtGithubWeebhookCi.php
 使用php配合github webhook进行自动部署
 
 需要安装php运行环境，php版本要求 > 5.6。
