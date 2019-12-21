@@ -25,7 +25,7 @@ function doShell ($cmd, $cwd = null) {
 }
 $postArr = json_decode($_POST['payload'],true);
 $repoName = $postArr['repository']['name'];
-$shell = 'cd /var/www/html/'.$repoName.' && sudo git pull';
+$shell = 'cd /data/wwwroot/'.$repoName.' && sudo git pull';
 $res = doShell($shell);
 $resText = json_encode($res);
 file_put_contents("ci.log", $resText, FILE_APPEND);
