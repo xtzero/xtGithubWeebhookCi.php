@@ -43,8 +43,9 @@ if (!empty($_POST['payload'])) {
         mkdir('log/'.$repoName.'/'.date('Y-m-d'));
     }
 
-    $resText = implode("\n /", $$resTextArr);
-    file_put_contents("log/{$repoName}/".date('Y-m-d')."/ci.log", $resText, FILE_APPEND);
+    $resText = implode("\n /", $resTextArr);
+    file_put_contents("log/{$repoName}/".date('Y-m-d')."/".date('Y-m-d-H-i-s')."-ci.log", $resText, FILE_APPEND);
+    echo json_encode($resTextArr);
 } else {
     echo 'nothing to do, no payload.';
 }
