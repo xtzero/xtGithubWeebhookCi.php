@@ -14,10 +14,10 @@ if (!empty($_POST['payload'])) {
     $repoName = $postArr['repository']['name'];
 
     // 先获取公共脚本数组
-    $commonShellArr = include_once('conf/common.cmd.php');
+    $commonShellArr = include_once('cmds/common.cmd.php');
 
-    if (is_file('conf/'.$repoName.'.conf.php')) {
-        $cmd = include_once('conf/'.$repoName.'.cmd.php');
+    if (is_file('cmds/'.$repoName.'.conf.php')) {
+        $cmd = include_once('cmds/'.$repoName.'.cmd.php');
         if (!empty($cmd['conf']['no_common']) && $cmd['conf']['no_common'] == 1) {
             $cmdArr = $cmd['cmd'];
         } else {
