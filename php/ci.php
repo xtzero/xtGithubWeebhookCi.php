@@ -16,7 +16,7 @@ if (!empty($_POST['payload'])) {
     // 先获取公共脚本数组
     $commonShellArr = include_once('cmds/common.cmd.php');
 
-    if (is_file('cmds/'.$repoName.'.conf.php')) {
+    if (is_file('cmds/'.$repoName.'.cmd.php')) {
         $cmd = include_once('cmds/'.$repoName.'.cmd.php');
         if (!empty($cmd['conf']['no_common']) && $cmd['conf']['no_common'] == 1) {
             $cmdArr = $cmd['cmd'];
