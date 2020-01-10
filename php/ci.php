@@ -26,7 +26,9 @@ if (!empty($_POST['payload'])) {
     } else {
         $cmdArr = $commonShellArr;
     }
-    $cmdStr = cmdDecode($cmdArr);
+    $cmdStr = cmdDecode($cmdArr, [
+        'repo_name' => $repoName
+    ]);
     $resTextArr[] = "即将执行shell";
     $resTextArr[] = $cmdStr;
     $res = doShell($cmdStr);
