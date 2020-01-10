@@ -31,19 +31,21 @@ if (!empty($_POST['payload'])) {
     $resTextArr[] = $cmdStr;
     $res = doShell($cmdStr);
     $resTextArr[] = "执行结果";
+    $resTextArr[] = json_encode($res);
+    
+    // 创建日志目录，开始记录日志
+    if (!is_dir('log/'.$repoName)) {
+        mkdir('log/'.$repoName);
+    }
+    if (!is_dir('log/'.$repoName.'/'.date('Y-m-d'))) {
+        mkdir('log/'.$repoName.'/'.date('Y-m-d'));
+    }
 
+    $resText = implode("\n /", $$resTextArr);
+    file_put_contents("log/{$repoName}/".date('Y-m-d')."/ci.log", $resText, FILE_APPEND);
 } else {
-    $resTextArr = ['nothing to do, no payload.'];
+    echo 'nothing to do, no payload.';
 }
 
-// 创建日志目录，开始记录日志
-if (!is_dir('log/'.$repoName)) {
-    mkdir('log/'.$repoName);
-}
-if (!is_dir('log/'.$repoName.'/'.date('Y-m-d'))) {
-    mkdir('log/'.$repoName.'/'.date('Y-m-d'));
-}
 
-$resText = implode("\n /", $$resTextArr);
-file_put_contents("log/{$repoName}/".date('Y-m-d')."/ci.log", $resText, FILE_APPEND);
 die();
