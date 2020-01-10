@@ -1,6 +1,10 @@
 # xtGithubWeebhookCi.php
 使用php配合github webhook进行自动部署
 
+> 正在进行更新。
+> 更新内容是
+>> 加入对不同项目的单独配置，比如swoole会重启服务，node项目会重新构建等。
+
 ## 环境要求
 php > 5.6
 git
