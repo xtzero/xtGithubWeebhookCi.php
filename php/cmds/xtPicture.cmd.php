@@ -5,6 +5,8 @@ return [
     ],
 
     'cmd' => [
-        'echo 最牛啤的xt相册部署完了！'
+        'cd /data/wwwroot/xtPicture/web/',
+        'yarn build',
+        'echo build_finish!'
     ]
 ];
