@@ -1,4 +1,6 @@
 <?php
+// 设置脚本不超时
+set_time_limit(0);
 // 加载执行shell的函数
 require_once 'lib/doShell.php';
 require_once 'lib/cmdDecode.php';
