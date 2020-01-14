@@ -6,7 +6,7 @@ return [
 
     'cmd' => [
         'cd /data/wwwroot/xtPicture/web/',
-        'nohup sudo yarn build &',
+        '"nohup sudo yarn build &"',
         'echo build_finish!'
     ]
 ];
